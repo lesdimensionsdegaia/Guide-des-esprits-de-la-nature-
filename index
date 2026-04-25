@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Le Guide des Esprits de la Nature — Eddy Boussetta</title>
+<meta name="description" content="514 pages d'exploration mystique des Esprits de la Nature. Écrit au nord de Béziers, imprimé à Toulouse. 100% Occitanie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Josefin+Sans:wght@200;300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#080f08;
+  --forest:#0f1f0f;
+  --moss:#1c341c;
+  --sage:#3d5e35;
+  --fern:#5e7d52;
+  --gold:#b8922a;
+  --gilt:#d4af50;
+  --shine:#f0cc76;
+  --cream:#f7f1e6;
+  --parch:#ece0c4;
+  --glow:rgba(184,146,42,0.18);
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--cream);
+  font-family:'EB Garamond',serif;
+  overflow-x:hidden;
+}
+
+/* === PARTICLES === */
+#ptcl{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.p{
+  position:absolute;border-radius:50%;
+  background:var(--gilt);opacity:0;
+  animation:pfloat linear infinite;
+}
+@keyframes pfloat{
+  0%{transform:translateY(105vh) scale(0);opacity:0}
+  15%{opacity:.5}85%{opacity:.2}
+  100%{transform:translateY(-10vh) scale(1);opacity:0}
+}
+
+/* === NAV === */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.85rem 3rem;
+  background:rgba(8,15,8,.92);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(212,175,80,.12);
+  transition:background .3s;
+}
+.nav-logo{
+  font-family:'Playfair Display',serif;
+  font-size:.95rem;color:var(--gilt);
+  text-decoration:none;letter-spacing:.05em;
+}
+.nav-logo span{
+  font-size:.7rem;font-style:italic;
+  opacity:.55;margin-left:.5rem;
+  font-family:'EB Garamond',serif;
+}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.58rem;letter-spacing:.38em;text-transform:uppercase;
+  color:rgba(247,241,230,.4);text-decoration:none;
+  transition:color .3s;
+}
+.nav-links a:hover{color:var(--gilt)}
+@media(max-width:720px){.nav-links{display:none}}
+
+/* === HERO === */
+.hero{
+  position:relative;min-height:100vh;
+  display:grid;grid-template-columns:55% 45%;
+  align-items:center;
+  padding:6rem 5rem 4rem;
+  overflow:hidden;z-index:1;
+}
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;padding:7rem 2rem 4rem;text-align:center}
+  .hero-right{display:flex;justify-content:center;margin-top:3rem}
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 70% at 70% 40%,rgba(28,52,28,.7) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 50% at 20% 80%,rgba(15,31,15,.8) 0%,transparent 60%),
+    linear-gradient(160deg,#0f1f0f 0%,#080f08 60%);
+}
+.hero-texture{
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 10 Q50 25 40 40 Q30 25 40 10Z M20 35 Q35 45 50 35 Q35 55 20 35Z' fill='%23d4af50' opacity='0.025'/%3E%3C/svg%3E");
+  animation:tex 12s ease-in-out infinite;
+}
+@keyframes tex{0%,100%{opacity:.5}50%{opacity:1}}
+.hero-left{position:relative;z-index:2}
+.tag-line{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.58rem;letter-spacing:.45em;text-transform:uppercase;
+  color:var(--gilt);margin-bottom:1.5rem;
+  animation:up .9s .1s both;
+}
+.tag-line::before{
+  content:'';display:block;width:28px;height:1px;
+  background:var(--gilt);
+}
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.4rem,5vw,4.2rem);
+  font-weight:400;line-height:1.12;
+  color:var(--cream);margin-bottom:.5rem;
+  animation:up .9s .25s both;
+}
+h1 em{
+  color:var(--gilt);font-style:italic;display:block;
+}
+.byline{
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:1.2rem;color:rgba(212,175,80,.65);
+  margin-bottom:1.8rem;animation:up .9s .4s both;
+}
+.hero-p{
+  font-size:1.1rem;line-height:1.9;
+  color:rgba(247,241,230,.68);
+  max-width:460px;margin-bottom:2.5rem;
+  animation:up .9s .55s both;
+}
+@media(max-width:860px){.hero-p{max-width:100%}}
+.cta-row{
+  display:flex;flex-wrap:wrap;gap:1rem;
+  animation:up .9s .7s both;
+}
+@media(max-width:860px){.cta-row{justify-content:center}}
+.btn{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.95rem 2.1rem;
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;
+  text-decoration:none;border:none;cursor:pointer;
+  border-radius:2px;transition:all .35s;
+}
+.btn-gold{
+  background:linear-gradient(135deg,var(--gilt),var(--shine));
+  color:var(--ink);font-weight:600;
+}
+.btn-gold:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 40px rgba(184,146,42,.4);
+  background:linear-gradient(135deg,var(--shine),var(--gilt));
+}
+.btn-ghost{
+  background:transparent;color:var(--gilt);
+  border:1px solid rgba(212,175,80,.4);
+}
+.btn-ghost:hover{
+  background:rgba(212,175,80,.07);
+  border-color:var(--gilt);
+  transform:translateY(-3px);
+}
+.hero-meta{
+  margin-top:2rem;display:flex;flex-wrap:wrap;gap:.6rem;
+  animation:up .9s .85s both;
+}
+@media(max-width:860px){.hero-meta{justify-content:center}}
+.pill{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.58rem;letter-spacing:.18em;
+  padding:.28rem .8rem;border-radius:20px;
+  border:1px solid rgba(212,175,80,.18);
+  color:rgba(94,125,82,.9);
+  background:rgba(212,175,80,.04);
+}
+.pill strong{color:var(--gilt)}
+
+/* Book 3D */
+.hero-right{position:relative;z-index:2}
+.book-stage{
+  position:relative;display:flex;
+  justify-content:center;align-items:center;
+}
+.book-halo{
+  position:absolute;
+  width:300px;height:400px;
+  background:radial-gradient(ellipse,rgba(212,175,80,.22) 0%,transparent 65%);
+  filter:blur(35px);
+  animation:halo 5s ease-in-out infinite;
+}
+@keyframes halo{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.12)}}
+.book-3d{
+  position:relative;z-index:1;
+  transform:perspective(900px) rotateY(-10deg) rotateX(3deg);
+  transition:transform .7s cubic-bezier(.23,1,.32,1);
+  animation:up 1.2s .2s both;
+}
+.book-3d:hover{transform:perspective(900px) rotateY(0deg) rotateX(0deg)}
+.book-cover-img{
+  width:270px;border-radius:2px 4px 4px 2px;
+  box-shadow:
+    -10px 14px 60px rgba(0,0,0,.75),
+    0 0 0 1px rgba(212,175,80,.25),
+    inset -3px 0 8px rgba(0,0,0,.3);
+}
+.book-spine{
+  position:absolute;top:0;left:-20px;bottom:0;
+  width:20px;
+  background:linear-gradient(to right,#050a05,#1a2e1a,#0a150a);
+  border-radius:2px 0 0 2px;
+  box-shadow:-6px 6px 20px rgba(0,0,0,.6);
+  transform:skewY(0);
+}
+.book-top{
+  position:absolute;top:-6px;left:-14px;right:0;
+  height:6px;
+  background:linear-gradient(to bottom,#2a4a2a,#1a2e1a);
+  transform:skewX(-45deg);
+  transform-origin:right;
+}
+.sticker{
+  position:absolute;
+  bottom:-12px;right:-14px;
+  width:64px;height:64px;
+  background:conic-gradient(from 0deg,var(--gilt),var(--shine),var(--gilt));
+  border-radius:50%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(184,146,42,.5);
+  animation:spin-slow 12s linear infinite;
+}
+@keyframes spin-slow{to{transform:rotate(360deg)}}
+.sticker-in{
+  background:var(--ink);border-radius:50%;
+  width:50px;height:50px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.42rem;letter-spacing:.1em;
+  color:var(--gilt);text-align:center;
+  animation:spin-slow 12s linear infinite reverse;
+}
+
+/* === SECTION BASE === */
+.s{position:relative;z-index:1;padding:6rem 4rem}
+@media(max-width:700px){.s{padding:4rem 1.5rem}}
+.s-in{max-width:1100px;margin:0 auto}
+.eyebrow{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.58rem;letter-spacing:.48em;
+  color:var(--gilt);text-transform:uppercase;
+  text-align:center;margin-bottom:.8rem;
+}
+.s-h{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.7rem,3.5vw,2.7rem);
+  font-weight:400;text-align:center;
+  color:var(--cream);margin-bottom:1rem;
+}
+.s-rule{
+  width:60px;height:1px;margin:0 auto 3.5rem;
+  background:linear-gradient(90deg,transparent,var(--gilt),transparent);
+}
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.rv{
+  opacity:0;transform:translateY(18px);
+  transition:opacity .65s,transform .65s;
+}
+.rv.in{opacity:1;transform:translateY(0)}
+
+/* === CHAPTERS === */
+.ch-bg{background:linear-gradient(180deg,#06100600,#06100680,#060606 100%),var(--ink)}
+.ch-bg{background:var(--forest)}
+.ch-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+  gap:1.2rem;
+}
+.ch{
+  padding:2rem;border-radius:3px;
+  border:1px solid rgba(212,175,80,.08);
+  background:rgba(255,255,255,.018);
+  position:relative;overflow:hidden;
+  transition:all .4s;
+}
+.ch::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(212,175,80,.4),transparent);
+  transform:scaleX(0);transition:transform .4s;
+}
+.ch:hover{
+  border-color:rgba(212,175,80,.28);
+  background:rgba(255,255,255,.03);
+  transform:translateY(-4px);
+  box-shadow:0 18px 45px rgba(0,0,0,.45);
+}
+.ch:hover::after{transform:scaleX(1)}
+.ch-n{
+  font-family:'Playfair Display',serif;
+  font-size:3rem;color:rgba(212,175,80,.1);
+  line-height:1;margin-bottom:.6rem;
+  font-style:italic;
+}
+.ch-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.05rem;color:var(--gilt);
+  font-style:italic;margin-bottom:.7rem;
+}
+.ch-desc{
+  font-size:.95rem;line-height:1.78;
+  color:rgba(247,241,230,.6);
+}
+
+/* === SPIRITS === */
+.sp-bg{background:var(--ink)}
+.sp-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+  gap:1.4rem;
+}
+.sp{
+  position:relative;border-radius:3px;
+  overflow:hidden;aspect-ratio:3/4;
+  border:1px solid rgba(212,175,80,.07);
+  transition:border-color .4s;cursor:pointer;
+}
+.sp:hover{border-color:rgba(212,175,80,.45)}
+.sp img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .7s cubic-bezier(.23,1,.32,1),filter .5s;
+  filter:sepia(20%) brightness(.78) contrast(1.08);
+}
+.sp:hover img{transform:scale(1.09);filter:sepia(0%) brightness(1)}
+.sp-ov{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,
+    rgba(8,15,8,.97) 0%,
+    rgba(8,15,8,.5) 40%,
+    transparent 75%
+  );
+  display:flex;flex-direction:column;
+  justify-content:flex-end;padding:1.4rem;
+}
+.sp-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.12rem;color:var(--gilt);
+  font-style:italic;margin-bottom:.2rem;
+}
+.sp-elem{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.55rem;letter-spacing:.28em;
+  color:var(--fern);text-transform:uppercase;
+  margin-bottom:.5rem;
+}
+.sp-txt{
+  font-size:.87rem;line-height:1.6;
+  color:rgba(247,241,230,.72);
+  max-height:0;overflow:hidden;
+  transition:max-height .5s cubic-bezier(.23,1,.32,1);
+}
+.sp:hover .sp-txt{max-height:120px}
+.sp-more{
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  text-align:center;padding:2rem 1.5rem;
+  background:rgba(255,255,255,.015);
+  border:1px dashed rgba(212,175,80,.12);
+  border-radius:3px;
+}
+.sp-more-ic{
+  font-size:2.2rem;
+  color:rgba(212,175,80,.2);
+  margin-bottom:1rem;
+}
+.sp-more-t{
+  font-family:'Playfair Display',serif;
+  font-size:.92rem;color:var(--gilt);
+  font-style:italic;margin-bottom:.8rem;
+}
+.sp-more-list{
+  font-size:.8rem;line-height:1.9;
+  color:rgba(247,241,230,.45);
+  margin-bottom:1.4rem;
+}
+
+/* === ELEMENTS === */
+.el-bg{
+  background:linear-gradient(160deg,var(--forest) 0%,#0d1a1f 50%,var(--forest) 100%);
+}
+.el-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(235px,1fr));
+  gap:1.4rem;
+}
+.el{
+  text-align:center;padding:2.8rem 1.8rem;
+  border:1px solid rgba(212,175,80,.1);
+  border-radius:3px;background:rgba(255,255,255,.018);
+  transition:all .4s;position:relative;
+}
+.el:hover{
+  transform:translateY(-6px);
+  box-shadow:0 22px 55px var(--glow);
+  border-color:rgba(212,175,80,.35);
+}
+.el-icon{font-size:2.8rem;margin-bottom:1.2rem;display:block}
+.el-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;color:var(--gilt);
+  font-style:italic;margin-bottom:.9rem;
+}
+.el-txt{
+  font-size:.95rem;line-height:1.78;
+  color:rgba(247,241,230,.62);
+}
+.el-spirits{
+  margin-top:.8rem;font-family:'Josefin Sans',sans-serif;
+  font-size:.58rem;letter-spacing:.2em;
+  color:var(--fern);
+}
+
+/* === QUIZ === */
+.qz-bg{
+  background:radial-gradient(ellipse 80% 80% at 50% 50%,var(--moss) 0%,var(--ink) 70%);
+}
+.qz-wrap{
+  max-width:660px;margin:0 auto;
+  background:rgba(255,255,255,.022);
+  border:1px solid rgba(212,175,80,.16);
+  border-radius:6px;padding:3.5rem;
+  text-align:center;
+  box-shadow:0 0 80px rgba(0,0,0,.4);
+}
+.qz-step{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.58rem;letter-spacing:.4em;
+  color:var(--gilt);margin-bottom:.8rem;
+}
+.qz-track{
+  width:100%;height:2px;
+  background:rgba(212,175,80,.1);
+  border-radius:2px;margin-bottom:2.8rem;overflow:hidden;
+}
+.qz-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--gilt),var(--shine));
+  border-radius:2px;transition:width .55s ease;
+}
+.qz-q{
+  font-family:'Playfair Display',serif;
+  font-size:1.22rem;font-style:italic;
+  line-height:1.65;color:var(--cream);
+  margin-bottom:2.2rem;
+}
+.qz-opts{display:flex;flex-direction:column;gap:.72rem}
+.qz-o{
+  padding:1rem 1.5rem;text-align:left;
+  background:rgba(255,255,255,.022);
+  border:1px solid rgba(212,175,80,.13);border-radius:3px;
+  color:rgba(247,241,230,.78);
+  font-family:'EB Garamond',serif;font-size:1rem;
+  cursor:pointer;transition:all .3s;
+}
+.qz-o:hover{
+  background:rgba(212,175,80,.07);
+  border-color:var(--gilt);color:var(--cream);
+  transform:translateX(8px);
+}
+/* Result */
+.qz-res{display:none;animation:up .8s both}
+.ri{font-size:4rem;margin-bottom:.6rem}
+.rp{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.58rem;letter-spacing:.42em;
+  color:var(--sage);margin-bottom:.8rem;
+  text-transform:uppercase;
+}
+.rn{
+  font-family:'Playfair Display',serif;
+  font-size:2.2rem;color:var(--gilt);
+  font-style:italic;margin-bottom:.4rem;
+}
+.re{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.6rem;letter-spacing:.3em;
+  color:var(--fern);margin-bottom:1.4rem;
+}
+.rtags{
+  display:flex;flex-wrap:wrap;gap:.45rem;
+  justify-content:center;margin-bottom:1.6rem;
+}
+.rtag{
+  padding:.25rem .8rem;
+  background:rgba(212,175,80,.07);
+  border:1px solid rgba(212,175,80,.22);
+  border-radius:20px;font-family:'Josefin Sans',sans-serif;
+  font-size:.57rem;letter-spacing:.14em;color:var(--gilt);
+}
+.rpsy{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:1.05rem;line-height:1.85;
+  color:rgba(247,241,230,.8);margin-bottom:.7rem;
+}
+.rsoc{
+  font-size:.92rem;color:var(--sage);margin-bottom:2rem;
+  line-height:1.7;
+}
+
+/* === REVIEWS === */
+.rv-bg{background:linear-gradient(180deg,var(--forest),var(--ink))}
+.rv-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:1.4rem;
+}
+.review{
+  padding:2rem;
+  border:1px solid rgba(212,175,80,.1);
+  border-radius:3px;background:rgba(255,255,255,.018);
+  transition:border-color .3s;
+}
+.review:hover{border-color:rgba(212,175,80,.28)}
+.rv-stars{color:var(--gilt);font-size:1rem;margin-bottom:1rem;letter-spacing:.1em}
+.rv-txt{
+  font-size:1rem;line-height:1.82;font-style:italic;
+  color:rgba(247,241,230,.75);margin-bottom:1.3rem;
+}
+.rv-name{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.62rem;letter-spacing:.28em;
+  color:rgba(247,241,230,.6);text-transform:uppercase;
+}
+.rv-loc{
+  font-size:.82rem;color:rgba(212,175,80,.4);
+  margin-top:.2rem;font-style:italic;
+}
+
+/* === AUTHOR === */
+.au-bg{background:var(--ink)}
+.au-grid{
+  display:grid;grid-template-columns:340px 1fr;
+  gap:5rem;align-items:start;
+  max-width:980px;margin:0 auto;
+}
+@media(max-width:800px){
+  .au-grid{grid-template-columns:1fr;gap:3rem;text-align:center}
+  .au-img-wrap{display:flex;justify-content:center}
+}
+.au-img-wrap{position:relative;width:fit-content}
+.au-img{
+  width:300px;border-radius:3px;
+  border:1px solid rgba(212,175,80,.2);
+  box-shadow:0 0 60px rgba(184,146,42,.1),0 20px 50px rgba(0,0,0,.6);
+  filter:sepia(12%) brightness(.88);
+}
+.au-img-wrap::before{
+  content:'';position:absolute;
+  inset:-14px;border:1px solid rgba(212,175,80,.12);
+  border-radius:4px;z-index:-1;
+}
+.au-img-wrap::after{
+  content:'';position:absolute;
+  bottom:-20px;right:-20px;
+  width:75%;height:75%;
+  border:1px solid rgba(212,175,80,.08);
+  border-radius:3px;z-index:-1;
+}
+.au-name{
+  font-family:'Playfair Display',serif;
+  font-size:2rem;color:var(--gilt);
+  margin-bottom:.3rem;
+}
+.au-title{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.6rem;letter-spacing:.32em;
+  color:var(--sage);text-transform:uppercase;
+  margin-bottom:2rem;
+}
+.au-bio p{
+  font-size:1.05rem;line-height:1.9;
+  color:rgba(247,241,230,.75);
+  margin-bottom:1rem;
+}
+.au-bio em{color:var(--gilt);font-style:italic}
+.au-skills{
+  display:flex;flex-wrap:wrap;gap:.5rem;
+  margin-top:1.8rem;
+}
+@media(max-width:800px){.au-skills{justify-content:center}}
+.au-skill{
+  padding:.28rem .85rem;
+  background:rgba(212,175,80,.07);
+  border:1px solid rgba(212,175,80,.2);
+  border-radius:20px;font-family:'Josefin Sans',sans-serif;
+  font-size:.6rem;letter-spacing:.15em;color:var(--gilt);
+}
+
+/* === OCCITANIE === */
+.oc-bg{
+  background:linear-gradient(160deg,var(--forest),#0e1a10);
+}
+.oc-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:1.4rem;
+}
+.oc-card{
+  text-align:center;padding:2.2rem 1.5rem;
+  border:1px solid rgba(212,175,80,.1);
+  border-radius:3px;background:rgba(255,255,255,.018);
+  transition:all .35s;
+}
+.oc-card:hover{border-color:rgba(212,175,80,.3);transform:translateY(-4px)}
+.oc-icon{font-size:2rem;margin-bottom:.9rem}
+.oc-title{
+  font-family:'Playfair Display',serif;
+  font-size:1rem;font-style:italic;
+  color:var(--gilt);margin-bottom:.7rem;
+}
+.oc-txt{
+  font-size:.93rem;line-height:1.75;
+  color:rgba(247,241,230,.6);
+}
+
+/* === ORDER CTA === */
+.order-bg{
+  background:radial-gradient(ellipse 70% 70% at 50% 50%,var(--moss) 0%,var(--ink) 100%);
+  text-align:center;padding:8rem 3rem;
+}
+.order-quote{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:1.25rem;line-height:1.8;
+  color:rgba(247,241,230,.75);
+  max-width:500px;margin:1.2rem auto 2.5rem;
+}
+.order-quote::before{content:'«  '}
+.order-quote::after{content:'  »'}
+.order-price{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.6rem;letter-spacing:.35em;
+  color:var(--sage);margin-bottom:1.2rem;
+}
+.order-btns{
+  display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;
+  margin-bottom:1.8rem;
+}
+.order-note{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.58rem;letter-spacing:.22em;
+  color:rgba(94,125,82,.55);
+}
+
+/* === AUDIO PLAYER === */
+.audio-float{
+  position:fixed;bottom:1.8rem;right:1.8rem;z-index:400;
+  display:flex;align-items:center;gap:.8rem;
+  background:rgba(8,15,8,.92);
+  border:1px solid rgba(212,175,80,.22);
+  border-radius:50px;padding:.65rem 1.2rem;
+  backdrop-filter:blur(14px);cursor:pointer;
+  transition:border-color .3s;
+  box-shadow:0 8px 30px rgba(0,0,0,.5);
+}
+.audio-float:hover{border-color:var(--gilt)}
+.audio-ico{font-size:1.1rem}
+.audio-lbl{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.58rem;letter-spacing:.22em;
+  color:rgba(94,125,82,.8);text-transform:uppercase;
+}
+.waves{display:flex;align-items:center;gap:2px}
+.w{
+  width:2px;background:var(--gilt);border-radius:2px;
+  animation:wv .9s ease-in-out infinite;
+}
+.w1{height:6px;animation-delay:0s}
+.w2{height:12px;animation-delay:.12s}
+.w3{height:8px;animation-delay:.24s}
+.w4{height:14px;animation-delay:.06s}
+.w5{height:6px;animation-delay:.18s}
+@keyframes wv{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.25)}}
+.w.off{animation-play-state:paused;opacity:.3}
+
+/* === FOOTER === */
+footer{
+  background:#040808;
+  padding:3rem 2rem;text-align:center;
+  border-top:1px solid rgba(212,175,80,.08);
+}
+.ft-logo{
+  font-family:'Playfair Display',serif;
+  font-size:1.1rem;color:var(--gilt);
+  font-style:italic;margin-bottom:.5rem;
+}
+.ft-sub{
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.58rem;letter-spacing:.28em;
+  color:var(--sage);margin-bottom:.4rem;
+}
+.ft-site a{
+  color:var(--gilt);text-decoration:none;
+  font-family:'Josefin Sans',sans-serif;
+  font-size:.6rem;letter-spacing:.2em;
+  transition:color .3s;
+}
+.ft-site a:hover{color:var(--shine)}
+.ft-copy{
+  margin-top:1.5rem;font-size:.82rem;
+  color:rgba(94,125,82,.35);font-style:italic;
+}
+</style>
+</head>
+<body>
+
+<!-- PARTICLES -->
+<div id="ptcl"></div>
+
+<!-- AUDIO -->
+<div class="audio-float" id="audioBtn" onclick="toggleAudio()">
+  <span class="audio-ico">🌿</span>
+  <span class="audio-lbl" id="audioLbl">Ambiance</span>
+  <div class="waves">
+    <div class="w w1 off"></div>
+    <div class="w w2 off"></div>
+    <div class="w w3 off"></div>
+    <div class="w w4 off"></div>
+    <div class="w w5 off"></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://share.google/auByUjgNgBBSr1X8W" target="_blank">
+    Le monde éthérique des esprits de la nature
+  </a>
+  <ul class="nav-links">
+    <li><a href="#chapitres">Chapitres</a></li>
+    <li><a href="#esprits">Esprits</a></li>
+    <li><a href="#elements">Éléments</a></li>
+    <li><a href="#quiz">Découverte</a></li>
+    <li><a href="#sorties">Sorties</a></li>
+    <li><a href="#auteur">Auteur</a></li>
+    <li><a href="#commander">Commander</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="accueil">
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
+
+  <div class="hero-left">
+    <p class="tag-line">Les Dimensions de Gaïa · 2024</p>
+    <h1>Le Guide des<br><em>Esprits de la Nature</em></h1>
+    <p class="byline">par Eddy Boussetta</p>
+    <p class="hero-p">
+      514 pages d'exploration mystique au cœur du monde invisible — légendes, messages d'aujourd'hui, radiesthésie, soins énergétiques et géobiologie. Un voyage au service de votre éveil.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="https://www.coollibri.com/bibliotheque-en-ligne/eddy-boussetta-/le-guide-des-esprits-de-la-nature--copie_735357" target="_blank">
+        🎨 Version Couleur — 49,90€
+      </a>
+      <a class="btn btn-ghost" href="https://www.coollibri.com/bibliotheque-en-ligne/eddy-boussetta-/le-guide-des-esprits-de-la-nature_735300" target="_blank">
+        🖤 Version N&B — 29,90€
+      </a>
+    </div>
+    <div class="hero-meta">
+      <span class="pill">🌿 <strong>100% Occitanie</strong></span>
+      <span class="pill">🖨️ Imprimé à <strong>Toulouse</strong></span>
+      <span class="pill">✍️ Écrit au <strong>Nord de Béziers</strong></span>
+      <span class="pill">♻️ Circuit court</span>
+      <span class="pill">📖 <strong>514 pages</strong></span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="book-stage">
+      <div class="book-halo"></div>
+      <div class="book-3d">
+        <div class="book-spine"></div>
+        <div class="book-top"></div>
+        <img class="book-cover-img" src="img/i0.jpg" alt="Le Guide des Esprits de la Nature">
+        <div class="sticker">
+          <div class="sticker-in">100%<br>Occitanie</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CHAPITRES ═══════════ -->
+<section class="s ch-bg" id="chapitres">
+  <div class="s-in">
+    <p class="eyebrow rv">Explorer le guide</p>
+    <h2 class="s-h rv">Les Grandes Parties</h2>
+    <div class="s-rule rv"></div>
+    <div class="ch-grid">
+      <div class="ch rv">
+        <div class="ch-n">I</div>
+        <div class="ch-name">Préambule & L'Auteur</div>
+        <div class="ch-desc">Une invitation à lâcher prise. La bio intime d'Eddy — son éveil spirituel dans les forêts du Languedoc, sa rencontre avec les Elfes près de Béziers, et la naissance des Dimensions de Gaïa.</div>
+      </div>
+      <div class="ch rv">
+        <div class="ch-n">II</div>
+        <div class="ch-name">Métaphysique & Énergies Subtiles</div>
+        <div class="ch-desc">Les lois invisibles qui régissent notre existence. Chakras, formes-pensées, offrandes, protection energétique, extinction des parasites — une initiation complète et progressive.</div>
+      </div>
+      <div class="ch rv">
+        <div class="ch-n">III</div>
+        <div class="ch-name">Bain de Forêt & Radiesthésie</div>
+        <div class="ch-desc">Communiquer avec la nature par le pendule et les baguettes. Protocoles terrain, planche d'entraînement, cadran des Esprits, géobiologie pratique sur le terrain.</div>
+      </div>
+      <div class="ch rv">
+        <div class="ch-n">IV</div>
+        <div class="ch-name">Organisation des Esprits</div>
+        <div class="ch-desc">Du sol à la canopée, de la terre au ciel. Comment les Esprits sont organisés, leurs compétences collectives, et les passages dimensionnels qui relient nos mondes.</div>
+      </div>
+      <div class="ch rv">
+        <div class="ch-n">V</div>
+        <div class="ch-name">Les 20 Esprits de la Nature</div>
+        <div class="ch-desc">Portrait complet de chaque esprit : histoire & légendes, message d'aujourd'hui, pouvoirs d'accompagnement, l'appel invocatoire, soins énergétiques et géobiologie.</div>
+      </div>
+      <div class="ch rv">
+        <div class="ch-n">VI</div>
+        <div class="ch-name">L'Appel des Éléments</div>
+        <div class="ch-desc">Terre, Eau, Feu, Air — chaque élément révèle une sagesse profonde. Animaux totem, gardiens des lieux, rites d'offrandes et exemples concrets sur le terrain.</div>
+      </div>
+      <div class="ch rv">
+        <div class="ch-n">VII</div>
+        <div class="ch-name">À travers le Monde & en France</div>
+        <div class="ch-desc">Chamanisme, animisme, druides, mages — ces traditions universelles résonnent dans notre Occitanie. Les esprits de la glace, du désert, des forêts profondes.</div>
+      </div>
+      <div class="ch rv">
+        <div class="ch-n">VIII</div>
+        <div class="ch-name">Jeu Coaching & Conclusion</div>
+        <div class="ch-desc">Paréidolie, bâton de sagesse, marche de l'âme — un outil vivant pour votre propre chemin. Ce guide grandit avec vous, conversation après conversation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ESPRITS ═══════════ -->
+<section class="s sp-bg" id="esprits">
+  <div class="s-in">
+    <p class="eyebrow rv">Le Bestiaire Mystique</p>
+    <h2 class="s-h rv">Les Esprits de la Nature</h2>
+    <div class="s-rule rv"></div>
+    <div class="sp-grid">
+
+      <div class="sp rv">
+        <img src="img/i1.jpg" alt="Le Nain">
+        <div class="sp-ov">
+          <div class="sp-name">Le Nain</div>
+          <div class="sp-elem">🌍 Terre · Ancrage · Force</div>
+          <div class="sp-txt">Maître de la géobiologie et artisan de la croûte terrestre. Il vous installe dans la réalité, booste vos projets et remonte vos diamants d'âme. Force physique et mentale.</div>
+        </div>
+      </div>
+
+      <div class="sp rv">
+        <img src="img/i2.jpg" alt="La Fée">
+        <div class="sp-ov">
+          <div class="sp-name">La Fée</div>
+          <div class="sp-elem">🌸 Tous éléments · Beauté · Vérité</div>
+          <div class="sp-txt">Reine du savoir-vivre, proche du substrat des anges. Elle révèle votre beauté cachée avec une protection surprenante. Miroir de vérité, joie et résilience.</div>
+        </div>
+      </div>
+
+      <div class="sp rv">
+        <img src="img/i3.jpg" alt="L'Elfe">
+        <div class="sp-ov">
+          <div class="sp-name">L'Elfe</div>
+          <div class="sp-elem">🍃 Canopée · Lumière · Connexion</div>
+          <div class="sp-txt">Être de lumière et de connexion. Les elfes favorisent le partage d'expériences et l'éveil de la créativité. Ce sont eux qui ont guidé Eddy vers sa mission.</div>
+        </div>
+      </div>
+
+      <div class="sp rv">
+        <img src="img/i4.jpg" alt="Le Dragon">
+        <div class="sp-ov">
+          <div class="sp-name">Le Dragon</div>
+          <div class="sp-elem">🔥 Atmosphère & Centre Terre · Cycles</div>
+          <div class="sp-txt">Maître des grands cycles et des révolutions profondes. Il guide les transformations nécessaires — invocation pour la conscience pure et le lâcher-prise.</div>
+        </div>
+      </div>
+
+      <div class="sp rv">
+        <img src="img/i5.jpg" alt="La Licorne">
+        <div class="sp-ov">
+          <div class="sp-name">La Licorne</div>
+          <div class="sp-elem">✨ Lumière · Méditation · Pureté</div>
+          <div class="sp-txt">Esprit de haute fréquence. Elle accompagne les états méditatifs profonds, la guérison de l'âme et l'ouverture aux dimensions de la conscience.</div>
+        </div>
+      </div>
+
+      <div class="sp rv">
+        <img src="img/i6.jpg" alt="L'Ondine">
+        <div class="sp-ov">
+          <div class="sp-name">L'Ondine</div>
+          <div class="sp-elem">💧 Eau · Intuition · Guérison</div>
+          <div class="sp-txt">Fille de la vie, régulatrice du taux d'hygrométrie. Elle porte la mémoire émotionnelle et ouvre les canaux de l'intuition profonde.</div>
+        </div>
+      </div>
+
+      <div class="sp rv">
+        <img src="img/i7.jpg" alt="La Vouivre">
+        <div class="sp-ov">
+          <div class="sp-name">La Vouivre</div>
+          <div class="sp-elem">🌊 Réseaux Hydriques · Purification</div>
+          <div class="sp-txt">Gardienne des réseaux souterrains et de surface. Elle surveille et purifie les flux hydriques avec une maîtrise géobiologique exceptionnelle.</div>
+        </div>
+      </div>
+
+      <div class="sp rv">
+        <img src="img/i8.jpg" alt="La Sylphe">
+        <div class="sp-ov">
+          <div class="sp-name">La Sylphe</div>
+          <div class="sp-elem">🌬️ Air · Messages · Arbres</div>
+          <div class="sp-txt">Elle apporte les caresses du vent et coordonne les messages des arbres. Esprit de l'air pur, elle accompagne la respiration et l'ouverture mentale.</div>
+        </div>
+      </div>
+
+      <div class="sp-more rv">
+        <div class="sp-more-ic">✦</div>
+        <div class="sp-more-t">+ 12 autres Esprits</div>
+        <div class="sp-more-list">
+          Lutin · Gnome · Salamandre<br>
+          Nymphe · Sirène · Néréide<br>
+          Déva · Triton · Petit Peuple<br>
+          Troll · Pégase · Déesse Dana<br>
+          Esprits de la Glace · du Désert
+        </div>
+        <a class="btn btn-ghost" href="https://www.coollibri.com/bibliotheque-en-ligne/eddy-boussetta-/le-guide-des-esprits-de-la-nature_735300" target="_blank" style="font-size:.62rem">
+          Tout découvrir dans le livre
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ÉLÉMENTS ═══════════ -->
+<section class="s el-bg" id="elements">
+  <div class="s-in">
+    <p class="eyebrow rv">Les Forces Primordiales</p>
+    <h2 class="s-h rv">L'Appel des Éléments</h2>
+    <div class="s-rule rv"></div>
+    <div class="el-grid">
+      <div class="el rv">
+        <span class="el-icon">🌍</span>
+        <div class="el-name">La Terre</div>
+        <div class="el-txt">Fondation, ancrage, fertilité. La terre nous invite à plonger dans notre vérité intérieure et à semer nos aspirations profondes.</div>
+        <div class="el-spirits">Nain · Gnome · Lutin · Troll</div>
+      </div>
+      <div class="el rv">
+        <span class="el-icon">💧</span>
+        <div class="el-name">L'Eau</div>
+        <div class="el-txt">Fluidité, intuition, guérison émotionnelle. Les eaux portent la mémoire du monde et purifient nos peurs les plus profondes.</div>
+        <div class="el-spirits">Ondine · Sirène · Néréide · Vouivre</div>
+      </div>
+      <div class="el rv">
+        <span class="el-icon">🔥</span>
+        <div class="el-name">Le Feu</div>
+        <div class="el-txt">Transformation, passion, renouveau. Le feu consume ce qui ne nous appartient plus et éclaire le chemin de notre renaissance.</div>
+        <div class="el-spirits">Salamandre · Dragon</div>
+      </div>
+      <div class="el rv">
+        <span class="el-icon">🌬️</span>
+        <div class="el-name">L'Air</div>
+        <div class="el-txt">Liberté, communication, clairvoyance. L'air porte les messages des arbres et ouvre nos sens au monde invisible.</div>
+        <div class="el-spirits">Sylphe · Elfe · Pégase · Fée</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ QUIZ ═══════════ -->
+<section class="s qz-bg" id="quiz">
+  <div class="s-in">
+    <p class="eyebrow rv">Révélation de votre guide</p>
+    <h2 class="s-h rv">Quel Esprit est proche de vous ?</h2>
+    <div class="s-rule rv"></div>
+    <div class="qz-wrap rv">
+      <div id="qzContent">
+        <p class="qz-step" id="qzStep">Question 1 / 7</p>
+        <div class="qz-track"><div class="qz-fill" id="qzBar" style="width:0%"></div></div>
+        <p class="qz-q" id="qzQ"></p>
+        <div class="qz-opts" id="qzOpts"></div>
+      </div>
+      <div class="qz-res" id="qzRes">
+        <div class="ri" id="rIcon"></div>
+        <p class="rp">Votre Esprit guide est</p>
+        <div class="rn" id="rName"></div>
+        <p class="re" id="rElem"></p>
+        <div class="rtags" id="rTags"></div>
+        <p class="rpsy" id="rPsy"></p>
+        <p class="rsoc" id="rSoc"></p>
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:1rem;">
+          <a class="btn btn-gold" href="https://www.coollibri.com/bibliotheque-en-ligne/eddy-boussetta-/le-guide-des-esprits-de-la-nature--copie_735357" target="_blank">✦ Découvrir dans le livre · Couleur</a>
+          <a class="btn btn-ghost" href="https://www.coollibri.com/bibliotheque-en-ligne/eddy-boussetta-/le-guide-des-esprits-de-la-nature_735300" target="_blank">🖤 Version N&B</a>
+        </div>
+        <button class="btn btn-ghost" onclick="restart()" style="font-size:.62rem;margin-top:.5rem">Recommencer</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ GALERIE SORTIES ═══════════ -->
+<section class="s" style="background:var(--ink);" id="sorties">
+  <div class="s-in">
+    <p class="eyebrow rv">Sur le terrain</p>
+    <h2 class="s-h rv">Les Sorties en Pleine Nature</h2>
+    <div class="s-rule rv"></div>
+    <p class="rv" style="text-align:center;font-style:italic;font-size:1.05rem;color:rgba(247,241,230,.65);max-width:600px;margin:0 auto 3rem;">
+      Plus de 100 sorties organisées en Bretagne, Hérault et partout en France — des rencontres authentiques avec les Esprits de la Nature.
+    </p>
+    <!-- Grid photos -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;">
+
+      <div class="rv" style="border-radius:4px;overflow:hidden;position:relative;aspect-ratio:4/3;border:1px solid rgba(212,175,80,.1);">
+        <img src="img/i9.jpg" alt="Sortie Esprits de la Nature" style="width:100%;height:100%;object-fit:cover;filter:brightness(.88);transition:all .5s;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem;background:linear-gradient(to top,rgba(8,15,8,.9),transparent);">
+          <p style="font-family:'Playfair Display',serif;font-style:italic;color:var(--gilt);font-size:.95rem;">Rencontre avec le groupe</p>
+          <p style="font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.2em;color:var(--fern);">SORTIE BRETAGNE</p>
+        </div>
+      </div>
+
+      <div class="rv" style="border-radius:4px;overflow:hidden;position:relative;aspect-ratio:4/3;border:1px solid rgba(212,175,80,.1);">
+        <img src="img/i10.jpg" alt="Cercle de pierres" style="width:100%;height:100%;object-fit:cover;filter:brightness(.88);transition:all .5s;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem;background:linear-gradient(to top,rgba(8,15,8,.9),transparent);">
+          <p style="font-family:'Playfair Display',serif;font-style:italic;color:var(--gilt);font-size:.95rem;">Connexion aux pierres sacrées</p>
+          <p style="font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.2em;color:var(--fern);">BRETAGNE · LIEU ÉNERGÉTIQUE</p>
+        </div>
+      </div>
+
+      <div class="rv" style="border-radius:4px;overflow:hidden;position:relative;aspect-ratio:4/3;border:1px solid rgba(212,175,80,.1);">
+        <img src="img/i11.jpg" alt="Randonnée en forêt" style="width:100%;height:100%;object-fit:cover;filter:brightness(.88);transition:all .5s;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem;background:linear-gradient(to top,rgba(8,15,8,.9),transparent);">
+          <p style="font-family:'Playfair Display',serif;font-style:italic;color:var(--gilt);font-size:.95rem;">Marche en conscience</p>
+          <p style="font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.2em;color:var(--fern);">FORÊT · BAIN ÉNERGÉTIQUE</p>
+        </div>
+      </div>
+
+      <div class="rv" style="border-radius:4px;overflow:hidden;position:relative;aspect-ratio:4/3;border:1px solid rgba(212,175,80,.1);">
+        <img src="img/i12.jpg" alt="Groupe au menhir" style="width:100%;height:100%;object-fit:cover;filter:brightness(.88);transition:all .5s;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem;background:linear-gradient(to top,rgba(8,15,8,.9),transparent);">
+          <p style="font-family:'Playfair Display',serif;font-style:italic;color:var(--gilt);font-size:.95rem;">Autour du menhir</p>
+          <p style="font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.2em;color:var(--fern);">RADIESTHÉSIE · MÉGALITHE</p>
+        </div>
+      </div>
+
+      <div class="rv" style="border-radius:4px;overflow:hidden;position:relative;aspect-ratio:4/3;border:1px solid rgba(212,175,80,.1);grid-column:span 1;">
+        <img src="img/i13.jpg" alt="Intelligence de Gaïa en forêt" style="width:100%;height:100%;object-fit:cover;filter:brightness(.88);transition:all .5s;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem;background:linear-gradient(to top,rgba(8,15,8,.9),transparent);">
+          <p style="font-family:'Playfair Display',serif;font-style:italic;color:var(--gilt);font-size:.95rem;">L'Intelligence Intégrale de Gaïa</p>
+          <p style="font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.2em;color:var(--fern);">CONNEXION ÉNERGÉTIQUE · FORÊT</p>
+        </div>
+      </div>
+
+      <div class="rv" style="border-radius:4px;overflow:hidden;position:relative;aspect-ratio:4/3;border:1px solid rgba(212,175,80,.1);">
+        <img src="img/i14.jpg" alt="Couverture du livre" style="width:100%;height:100%;object-fit:cover;filter:brightness(.88);transition:all .5s;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem;background:linear-gradient(to top,rgba(8,15,8,.9),transparent);">
+          <p style="font-family:'Playfair Display',serif;font-style:italic;color:var(--gilt);font-size:.95rem;">Le Guide des Esprits de la Nature</p>
+          <p style="font-family:'Josefin Sans',sans-serif;font-size:.58rem;letter-spacing:.2em;color:var(--fern);">PAR LES DIMENSIONS DE GAÏA</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA sorties -->
+    <div class="rv" style="text-align:center;margin-top:3rem;">
+      <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:rgba(247,241,230,.7);margin-bottom:1.5rem;">
+        Rejoignez l'une de mes prochaines sorties en Bretagne, en Hérault ou partout en France
+      </p>
+      <a class="btn btn-gold" href="https://share.google/auByUjgNgBBSr1X8W" target="_blank">
+        🌿 Réserver une sortie nature
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ AVIS ═══════════ -->
+<section class="s rv-bg" id="avis">
+  <div class="s-in">
+    <p class="eyebrow rv">Ce qu'ils en disent</p>
+    <h2 class="s-h rv">Témoignages</h2>
+    <div class="s-rule rv"></div>
+    <div class="rv-grid">
+      <div class="review rv">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-txt">« Ce guide a transformé ma façon de percevoir la forêt. Lors d'une randonnée avec Eddy dans les Monts de l'Espinouse, j'ai ressenti pour la première fois la présence de quelque chose de bien plus grand. Le chapitre sur la Fée a résonné en moi avec une précision troublante. »</p>
+        <div class="rv-name">Isabelle M.</div>
+        <div class="rv-loc">Saint-Pons-de-Thomières, Hérault</div>
+      </div>
+      <div class="review rv">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-txt">« Je suis ingénieur, très cartésien. La rigueur avec laquelle Eddy distingue légende, folklore et perception actuelle m'a convaincu de lire jusqu'au bout. Un ouvrage honnête, intime et profondément humain. »</p>
+        <div class="rv-name">Thomas R.</div>
+        <div class="rv-loc">Montpellier, Hérault</div>
+      </div>
+      <div class="review rv">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-txt">« J'ai offert ce livre à ma mère et à ma fille. Trois générations réunies autour des mêmes pages. On en parle encore lors de nos balades familiales dans la garrigue. L'énergie du Lutin correspond si bien à mon fils de 7 ans ! »</p>
+        <div class="rv-name">Nathalie V.</div>
+        <div class="rv-loc">Béziers, Hérault</div>
+      </div>
+      <div class="review rv">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-txt">« La section sur la Radiesthésie et les protocoles terrain est remarquable. J'enseigne le Reiki depuis 10 ans et ce guide m'a apporté des outils concrets que j'intègre maintenant dans mes soins. »</p>
+        <div class="rv-name">Véronique L.</div>
+        <div class="rv-loc">Toulouse, Haute-Garonne</div>
+      </div>
+      <div class="review rv">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-txt">« Acheté lors d'un salon bien-être à Narbonne. Lu en deux jours. Le chapitre sur le Dragon m'a tiré des larmes — j'y ai trouvé une réponse à quelque chose qui me hantait depuis des années. »</p>
+        <div class="rv-name">Laurent F.</div>
+        <div class="rv-loc">Narbonne, Aude</div>
+      </div>
+      <div class="review rv">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-txt">« On sent à chaque page qu'il a été écrit avec les pieds dans la terre et le cœur grand ouvert. Et le fait qu'il soit 100% produit en Occitanie lui donne une âme supplémentaire. Un objet rare. »</p>
+        <div class="rv-name">Marie-Claire B.</div>
+        <div class="rv-loc">Carcassonne, Aude</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ AUTEUR ═══════════ -->
+<section class="s au-bg" id="auteur">
+  <div class="s-in">
+    <p class="eyebrow rv" style="text-align:left">L'Auteur</p>
+    <div class="au-grid">
+      <div class="au-img-wrap rv">
+        <img class="au-img" src="img/i15.jpg" alt="Eddy Boussetta">
+      </div>
+      <div class="rv">
+        <div class="au-name">Eddy Boussetta</div>
+        <div class="au-title">Guide Spirituel · Thérapeute · Fondateur des Dimensions de Gaïa</div>
+        <div class="au-bio">
+          <p>Né à <em>Paris</em>, Eddy grandit dans la capitale avant de partir à la découverte de la France — l'ouest, puis le nord — portant en lui cette quête silencieuse de quelque chose de plus grand que les villes et leur bruit.</p>
+          <p>C'est finalement le <em>Sud, l'Occitanie</em>, qui l'appelle et le retient. Installé au nord de Béziers, dans la garrigue languedocienne, il vit un jour ce que l'on pourrait appeler un passage initiatique — un jogging ordinaire qui bascule en éveil profond au contact de la nature.</p>
+          <p>Dès lors, tout s'enchaîne : formations aux arts holistiques — <em>radiesthésie, hypnose ericksonienne, magnétisme</em> — et une écoute de plus en plus fine des énergies du vivant. Choisi selon ses propres mots par "Mère la Terre", il crée <em>Le monde éthérique des esprits de la nature</em>.</p>
+          <p>Plus d'une centaine de sorties nature organisées, près de mille personnes accompagnées au contact des Esprits. Ce guide est le fruit de ces années de terrain, de rencontres et d'écoute patiente du monde invisible.</p>
+        </div>
+        <div class="au-skills">
+          <span class="au-skill">Hypnose Ericksonienne</span>
+          <span class="au-skill">Radiesthésie</span>
+          <span class="au-skill">Magnétisme</span>
+          <span class="au-skill">Guide Nature</span>
+          <span class="au-skill">Géobiologie</span>
+          <span class="au-skill">Conférences</span>
+          <span class="au-skill">Occitanie</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ OCCITANIE ═══════════ -->
+<section class="s oc-bg">
+  <div class="s-in">
+    <p class="eyebrow rv">Notre engagement</p>
+    <h2 class="s-h rv">100% Occitanie · Circuit Court</h2>
+    <div class="s-rule rv"></div>
+    <div class="oc-grid">
+      <div class="oc-card rv">
+        <div class="oc-icon">✍️</div>
+        <div class="oc-title">Écrit au Nord de Béziers</div>
+        <div class="oc-txt">Rédigé dans la garrigue héraultaise, au cœur d'un territoire où les énergies telluriques sont particulièrement vivantes. Chaque mot porte l'âme du Languedoc.</div>
+      </div>
+      <div class="oc-card rv">
+        <div class="oc-icon">🖨️</div>
+        <div class="oc-title">Imprimé à Toulouse</div>
+        <div class="oc-txt">La production est entièrement locale. Imprimé à Toulouse, capitale de l'Occitanie, avec un savoir-faire artisanal et une empreinte carbone minimale.</div>
+      </div>
+      <div class="oc-card rv">
+        <div class="oc-icon">🌿</div>
+        <div class="oc-title">Circuit Court</div>
+        <div class="oc-txt">De l'auteur à l'imprimeur : tout reste en Occitanie. Un choix écologique et éthique qui soutient l'économie locale et réduit les transports au strict nécessaire.</div>
+      </div>
+      <div class="oc-card rv">
+        <div class="oc-icon">♻️</div>
+        <div class="oc-title">Deux Versions Engagées</div>
+        <div class="oc-txt">Version couleur pour l'expérience visuelle complète (49,90€), version noir et blanc pour minimiser l'impact écologique (29,90€). Vous choisissez selon vos valeurs.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COMMANDER ═══════════ -->
+<section class="order-bg" id="commander">
+  <p class="eyebrow rv">Rejoindre l'aventure</p>
+  <h2 class="s-h rv">Commandez votre exemplaire</h2>
+  <div class="s-rule rv" style="margin-bottom:1.5rem"></div>
+  <p class="order-quote rv">
+    Que chaque page soit une aventure, chaque découverte une perle, et chaque moment un éclat de magie.
+  </p>
+  <p class="order-price rv">Disponible sur Coollibri · Auto-édition 100% Occitanie</p>
+  <div class="order-btns rv">
+    <a class="btn btn-gold" href="https://www.coollibri.com/bibliotheque-en-ligne/eddy-boussetta-/le-guide-des-esprits-de-la-nature--copie_735357" target="_blank">
+      🎨 Version Couleur — 49,90€
+    </a>
+    <a class="btn btn-ghost" href="https://www.coollibri.com/bibliotheque-en-ligne/eddy-boussetta-/le-guide-des-esprits-de-la-nature_735300" target="_blank">
+      🖤 Version Noir & Blanc — 29,90€
+    </a>
+  </div>
+  <p class="order-note rv">🌿 Imprimé à Toulouse · Écrit au nord de Béziers · Circuit court Occitanie</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-logo">Le monde éthérique des esprits de la nature</div>
+  <p class="ft-sub">Micro-entreprise · Guide Spirituel & Thérapeute · Eddy Boussetta · Hérault, Occitanie</p>
+  <p class="ft-site"><a href="https://share.google/auByUjgNgBBSr1X8W" target="_blank">🌐 Le monde éthérique des esprits de la nature</a></p>
+  <p class="ft-copy">© 2024 M. Boussetta Eddy « Les Dimensions de Gaïa » · Tous droits réservés</p>
+</footer>
+
+<script>
+// ── PARTICLES ──
+const ptcl = document.getElementById('ptcl');
+for(let i=0;i<30;i++){
+  const p=document.createElement('div');
+  p.className='p';
+  const s=Math.random()*3+.8;
+  p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${12+Math.random()*22}s;animation-delay:${Math.random()*18}s`;
+  ptcl.appendChild(p);
+}
+
+// ── SCROLL REVEAL ──
+const items=document.querySelectorAll('.rv');
+const obs=new IntersectionObserver(en=>{
+  en.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('in'),i*55);
+    }
+  });
+},{threshold:.08});
+items.forEach(el=>obs.observe(el));
+
+// ── AUDIO ──
+let ctx=null,playing=false,masterGain=null;
+function toggleAudio(){
+  const ws=document.querySelectorAll('.w');
+  const lbl=document.getElementById('audioLbl');
+  if(!playing){
+    playing=true;
+    if(!ctx){
+      ctx=new(window.AudioContext||window.webkitAudioContext)();
+      masterGain=ctx.createGain();
+      masterGain.gain.setValueAtTime(0,ctx.currentTime);
+      masterGain.gain.linearRampToValueAtTime(0.28,ctx.currentTime+2.5);
+      masterGain.connect(ctx.destination);
+      buildAmbience();
+    } else {
+      masterGain.gain.linearRampToValueAtTime(0.28,ctx.currentTime+1);
+    }
+    ws.forEach(w=>w.classList.remove('off'));
+    lbl.textContent='Forêt';
+  } else {
+    playing=false;
+    masterGain.gain.linearRampToValueAtTime(0,ctx.currentTime+1);
+    ws.forEach(w=>w.classList.add('off'));
+    lbl.textContent='Ambiance';
+  }
+}
+function buildAmbience(){
+  // Wind
+  const buf=ctx.createBuffer(1,ctx.sampleRate*4,ctx.sampleRate);
+  const d=buf.getChannelData(0);
+  for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;
+  const wind=ctx.createBufferSource();
+  wind.buffer=buf;wind.loop=true;
+  const bf=ctx.createBiquadFilter();
+  bf.type='bandpass';bf.frequency.value=400;bf.Q.value=0.4;
+  const wg=ctx.createGain();wg.gain.value=0.12;
+  wind.connect(bf);bf.connect(wg);wg.connect(masterGain);
+  wind.start();
+  // Drone
+  const dr=ctx.createOscillator();
+  const drg=ctx.createGain();
+  dr.type='sine';dr.frequency.value=82.4;
+  drg.gain.value=0.035;
+  dr.connect(drg);drg.connect(masterGain);dr.start();
+  // High shimmer
+  const sh=ctx.createOscillator();
+  const shg=ctx.createGain();
+  sh.type='sine';sh.frequency.value=432;
+  shg.gain.value=0.018;
+  sh.connect(shg);shg.connect(masterGain);sh.start();
+  // Chimes
+  function chime(){
+    if(!playing)return;
+    const notes=[523.25,659.25,783.99,1046.5,880,698.46,587.33];
+    const f=notes[Math.floor(Math.random()*notes.length)];
+    const o=ctx.createOscillator();
+    const g=ctx.createGain();
+    o.type='sine';o.frequency.value=f;
+    g.gain.setValueAtTime(0,ctx.currentTime);
+    g.gain.linearRampToValueAtTime(0.038,ctx.currentTime+.04);
+    g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+2);
+    o.connect(g);g.connect(masterGain);
+    o.start();o.stop(ctx.currentTime+2.5);
+    setTimeout(chime,1800+Math.random()*4500);
+  }
+  setTimeout(chime,800);
+}
+
+// ── QUIZ ──
+const questions=[
+  {q:"En nature, vous êtes naturellement attiré(e) par…",opts:[
+    {t:"Les racines, pierres, le sol sous vos pieds",s:[3,0,0,0,0,0,0]},
+    {t:"Les ruisseaux, lacs, le bruit de l'eau",s:[0,3,0,0,0,0,0]},
+    {t:"Les cimes, le vent dans les feuilles",s:[0,0,3,0,0,0,0]},
+    {t:"La lumière qui filtre, les fleurs sauvages",s:[0,0,0,3,0,0,0]},
+  ]},
+  {q:"Votre entourage vous voit souvent comme…",opts:[
+    {t:"Fiable, tenace, les pieds sur terre",s:[3,0,0,0,0,0,0]},
+    {t:"Intuitif(ve), sensible, empathique",s:[0,3,0,0,0,0,0]},
+    {t:"Créatif(ve), imaginatif(ve), inspirant(e)",s:[0,0,0,3,0,0,0]},
+    {t:"Puissant(e), transformateur(trice), mystérieux(se)",s:[0,0,0,0,3,0,0]},
+  ]},
+  {q:"Face à un grand défi, votre premier mouvement est…",opts:[
+    {t:"Agir immédiatement, construire, avancer",s:[3,0,0,0,0,0,0]},
+    {t:"Ressentir la situation, attendre la réponse intérieure",s:[0,3,0,0,0,0,0]},
+    {t:"Trouver une solution originale et créative",s:[0,0,0,3,0,0,0]},
+    {t:"Prendre de la hauteur, voir le grand tableau",s:[0,0,0,0,3,0,0]},
+  ]},
+  {q:"La qualité que vous cherchez le plus à développer…",opts:[
+    {t:"La douceur et la délicatesse",s:[0,0,0,3,0,0,0]},
+    {t:"La force et l'action directe",s:[3,0,0,0,0,0,0]},
+    {t:"La légèreté et l'humour",s:[0,0,0,0,0,3,0]},
+    {t:"La profondeur et la sagesse",s:[0,0,0,0,3,0,0]},
+  ]},
+  {q:"En société, vous vous sentez le mieux…",opts:[
+    {t:"En conversations profondes, petit groupe",s:[0,3,0,0,0,0,0]},
+    {t:"Seul(e) ou avec très peu de personnes choisies",s:[3,0,0,0,0,0,0]},
+    {t:"Dans les échanges créatifs et inspirants",s:[0,0,0,3,0,0,0]},
+    {t:"Partout — vous vous adaptez naturellement",s:[0,0,3,0,0,0,0]},
+  ]},
+  {q:"Votre rapport à la spiritualité est…",opts:[
+    {t:"Ancré dans le concret, la pratique quotidienne",s:[3,0,0,0,0,0,0]},
+    {t:"Porté par le ressenti et l'émotion profonde",s:[0,3,0,0,0,0,0]},
+    {t:"Nourri par la beauté, l'art, la créativité",s:[0,0,0,3,0,0,0]},
+    {t:"Lié aux grands cycles et à l'évolution de l'âme",s:[0,0,0,0,3,0,0]},
+  ]},
+  {q:"Le cadeau que vous souhaitez offrir au monde…",opts:[
+    {t:"La force d'agir et de construire",s:[3,0,0,0,0,0,0]},
+    {t:"La guérison et la compassion",s:[0,3,0,0,0,0,0]},
+    {t:"La joie et la magie",s:[0,0,0,3,0,0,0]},
+    {t:"La transformation et l'éveil",s:[0,0,0,0,3,0,0]},
+  ]},
+];
+const spirits=[
+  {name:"Le Nain",icon:"⛏️",elem:"🌍 Esprit de la Terre · Ancrage & Force",
+    tags:["Travail","Courage","Persévérance","Ancrage","Force mentale"],
+    psy:"Vous êtes un bâtisseur. Ancré dans la réalité, vous avancez par l'action concrète et la ténacité. Votre force intérieure est immense, même si vous la doublez parfois de vous-même.",
+    soc:"Socialement, vous êtes le pilier sur lequel les autres s'appuient. Spirituellement, votre croissance passe par l'action incarnée et la reconnaissance de votre propre valeur."},
+  {name:"L'Ondine",icon:"💧",elem:"💧 Esprit de l'Eau · Intuition & Guérison",
+    tags:["Intuition","Empathie","Guérison","Sensibilité","Profondeur"],
+    psy:"Vous portez la mémoire émotionnelle du monde. D'une grande sensibilité, vous percevez ce que les autres ne voient pas. C'est votre plus grand pouvoir.",
+    soc:"Vous créez des liens profonds et durables. Votre chemin spirituel passe par l'exploration des dimensions de l'âme et la guérison par le ressenti."},
+  {name:"L'Elfe",icon:"🌿",elem:"🍃 Esprit de la Canopée · Lumière & Connexion",
+    tags:["Créativité","Adaptabilité","Communication","Partage","Lumière"],
+    psy:"Vous êtes un pont entre les mondes. Créatif et adaptable, vous vous épanouissez dans les échanges et les nouvelles idées. Votre don naturel est de relier les âmes.",
+    soc:"Vous rayonnez dans les milieux créatifs et spirituels. Votre chemin est celui de l'éveil par le partage et la co-création."},
+  {name:"La Fée",icon:"✨",elem:"🌸 Esprit de la Beauté · Authenticité & Joie",
+    tags:["Joie","Authenticité","Créativité","Délicatesse","Résilience"],
+    psy:"Vous portez une beauté d'âme rare. Sensibilité artistique profonde et besoin irrépressible d'authenticité — vous ne supportez pas le faux, et c'est une force.",
+    soc:"Vous illuminez les espaces que vous habitez. La Fée vous invite à assumer pleinement votre unicité et à laisser briller votre lumière propre."},
+  {name:"Le Dragon",icon:"🐉",elem:"🔥 Esprit des Cycles · Transformation & Vision",
+    tags:["Puissance","Transformation","Vision","Cycles","Maîtrise"],
+    psy:"Vous incarnez la transformation profonde. Vous percevez les cycles là où les autres voient le chaos. Votre profondeur peut intimider, mais c'est votre couronne.",
+    soc:"Rare et sélectif(ve) dans vos liens, vous guidez les grandes mutations. Spirituellement, vous êtes appelé(e) à accompagner les révolutions de conscience."},
+  {name:"Le Lutin",icon:"🍄",elem:"🌱 Esprit de la Joie · Créativité & Dévouement",
+    tags:["Humour","Agilité","Dévouement","Spontanéité","Malice bienveillante"],
+    psy:"Vous apportez la légèreté que le monde a tant besoin. Agilité mentale remarquable et humour qui cache une sagesse profonde — votre joie est contagieuse.",
+    soc:"Vous mettez tout le monde à l'aise. Votre spiritualité est joyeuse et incarnée — vous vivez le sacré dans la beauté du quotidien."},
+  {name:"La Licorne",icon:"🦄",elem:"✨ Esprit de la Lumière · Pureté & Élévation",
+    tags:["Pureté","Vision","Méditation","Élévation","Grâce"],
+    psy:"Vous portez la fréquence la plus haute. Idéaliste dans le meilleur sens, vous percevez le potentiel divin en chaque être. Votre intégrité est votre armure.",
+    soc:"Vous attirez ceux qui cherchent sincèrement leur chemin. La Licorne vous appelle vers les états de conscience les plus élevés et la paix intérieure."},
+];
+let sc=[0,0,0,0,0,0,0],qi=0;
+function render(){
+  const q=questions[qi];
+  document.getElementById('qzStep').textContent=`Question ${qi+1} / ${questions.length}`;
+  document.getElementById('qzBar').style.width=`${(qi/questions.length)*100}%`;
+  document.getElementById('qzQ').textContent=q.q;
+  const o=document.getElementById('qzOpts');o.innerHTML='';
+  q.opts.forEach(op=>{
+    const b=document.createElement('button');
+    b.className='qz-o';b.textContent=op.t;
+    b.onclick=()=>pick(op.s);o.appendChild(b);
+  });
+}
+function pick(s){
+  s.forEach((v,i)=>sc[i]+=v);qi++;
+  qi>=questions.length?result():render();
+}
+function result(){
+  document.getElementById('qzBar').style.width='100%';
+  const idx=sc.indexOf(Math.max(...sc));
+  const sp=spirits[idx];
+  document.getElementById('qzContent').style.display='none';
+  const r=document.getElementById('qzRes');r.style.display='block';
+  document.getElementById('rIcon').textContent=sp.icon;
+  document.getElementById('rName').textContent=sp.name;
+  document.getElementById('rElem').textContent=sp.elem;
+  document.getElementById('rPsy').textContent=sp.psy;
+  document.getElementById('rSoc').textContent=sp.soc;
+  document.getElementById('rTags').innerHTML=sp.tags.map(t=>`<span class="rtag">${t}</span>`).join('');
+}
+function restart(){
+  sc=[0,0,0,0,0,0,0];qi=0;
+  document.getElementById('qzRes').style.display='none';
+  document.getElementById('qzContent').style.display='block';
+  render();
+}
+render();
+</script>
+</body>
+</html>
